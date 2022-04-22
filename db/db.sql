@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS employee-management;
-CREATE DATABASE employee-management;
-USE employee-management;
+DROP DATABASE IF EXISTS employeemanagement;
+CREATE DATABASE employeemanagement;
+USE employeemanagement;

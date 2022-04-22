@@ -4,13 +4,76 @@ VALUES
     ("Engineering"),
     ("Marketing"),
     ("Customer Service"),
-    ("Software")
+    ("Software");
 
 INSERT INTO roles
-    (title, salary)
+    (title, salary, department_id)
 VALUES
+    ("Director", 200000.00, 1),
+    ("Product Manager", 175000.00, 1),
+    ("Engineer", 125000.00, 1),
+    ("Intern", 75000.00, 1),
+    ("Director", 200000.00, 2),
+    ("Marketer", 80000.00, 2),
+    ("Intern", 60000.00, 2),
+    ("Director", 200000.00, 3),
+    ("Manager", 120000.00, 3),
+    ("Team Lead", 80000.00, 3),
+    ("Product Specialist", 40000.00, 3),
+    ("Director", 200000.00, 4),
+    ("Programmer", 100000.00, 4),
+    ("Intern", 75000.00, 4);
 
-
-INSERT INTO employee
-    (first_name, last_name, manager_id)
+INSERT INTO employees
+    (first_name, last_name, role_id, manager_id)
 VALUES
+    ('James', 'Fraser', 1, NULL),
+    ('Jack', 'London', 2, 1),
+    ('Robert', 'Bruce', 2, 1),
+    ('Peter', 'Greenaway', 2, 1),
+    ('Derek', 'Jarman', 3, 2),
+    ('Paolo', 'Pasolini', 3, 2),
+    ('Heathcote', 'Williams', 3, 2),
+    ('Sandy', 'Powell', 3, 2),
+    ('Emil', 'Zola', 3, 3),
+    ('Sissy', 'Coalpits', 3, 3),
+    ('Antoinette', 'Capet', 3, 3),
+    ('Samuel', 'Delany', 3, 3),
+    ('Tony', 'Duvert', 3, 4),
+    ('Dennis', 'Cooper', 3, 4),
+    ('Monica', 'Bellucci', 3, 4),
+    ('Samuel', 'Johnson', 3, 4),
+    ('John', 'Dryden', 4, 2),
+    ('Alexander', 'Pope', 4, 3),
+    ('Lionel', 'Johnson', 4, 4),
+    ('Aubrey', 'Beardsley', 5, NULL),
+    ('Tulse', 'Luper', 6, 20),
+    ('William', 'Morris', 6, 20),
+    ('George', 'Shaw', 6, 20),
+    ('Arnold', 'Bennett', 6, 20),
+    ('Algernon', 'Blackwood', 7, 20),
+    ('Rhoda', 'Broughton', 8, NULL),
+    ('Hart', 'Crane', 9, 26),
+    ('Vitorio', 'DeSica', 10, 27),
+    ('Wilkie', 'Collins', 10, 27),
+    ('Elizabeth', 'Gaskell', 10, 27),
+    ('George', 'Sand', 11, 28),
+    ('Vernon', 'Lee', 11, 28),
+    ('Arthur', 'Machen', 11, 28),
+    ('Frederick', 'Marryat', 11, 28),
+    ('Harriet', 'Martineau', 11, 28),
+    ('George', 'Meredith', 11, 29),
+    ('Margaret', 'Oliphant', 11, 29),
+    ('Anthony', 'Trollope', 11, 29),
+    ('Charlotte', 'Yonge', 11, 29),
+    ('Horace', 'Walpole', 11, 29),
+    ('Matthew', 'Lewis', 11, 30),
+    ('William', 'Bedford', 11, 30),
+    ('Anne', 'Radcliffe', 11, 30),
+    ('Charles', 'Brown', 11, 30),
+    ('Eliza', 'Parsons', 11, 30),
+    ('Susan', 'Hill', 12, NULL),
+    ('Sydney', 'Owenson', 13, 46),
+    ('Hubert', 'Crackanthorpe', 13, 46),
+    ('William', 'Carleton', 13, 46),
+    ('Gerald', 'Griffin', 14, 46);
