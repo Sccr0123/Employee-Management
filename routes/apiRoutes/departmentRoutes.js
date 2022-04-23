@@ -19,7 +19,7 @@ router.get("/departments", (req, res) => {
 	});
 });
 
-//GET a single party
+//GET a single department
 router.get("/departments/:id", (req, res) => {
 	const sql = `SELECT * FROM departments WHERE id = ?`;
 	const params = [req.params.id];
@@ -78,7 +78,7 @@ router.post("/departments", ({ body }, res) => {
 	});
 });
 
-//DELETE a party
+//DELETE a department
 router.delete("/departments/:id", (req, res) => {
 	const sql = `DELETE FROM departments WHERE id = ?`;
 	const params = [req.params.id];
@@ -88,7 +88,7 @@ router.delete("/departments/:id", (req, res) => {
 			// checks if anything was deleted
 		} else if (!result.affectedRows) {
 			res.json({
-				message: "Party not found",
+				message: "Employee not found",
 			});
 		} else {
 			res.json({
