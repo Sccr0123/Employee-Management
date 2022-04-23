@@ -3,7 +3,6 @@ const express = require("express");
 const mysql = require("mysql2");
 
 //Imports user-defined modules
-const inputCheck = require("./utils/inputCheck");
 const db = require("./db/connection");
 const apiRoutes = require("./routes/apiRoutes");
 
