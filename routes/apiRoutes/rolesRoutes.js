@@ -94,7 +94,7 @@ router.put("/roles/:id", (req, res) => {
 		affectedRows++;
 	}
 
-	if (!req.body) {
+	if (req.body) {
 		res.json({
 			message: "success",
 			data: req.body,
@@ -129,7 +129,7 @@ function updateTitle(req, res) {
 				message: "Role not found",
 			});
 		} else {
-			return result.affectedRows;
+			return;
 		}
 	});
 }
@@ -156,7 +156,7 @@ function updateSalary(req, res) {
 				message: "Role not found",
 			});
 		} else {
-			return result.affectedRows;
+			return;
 		}
 	});
 }
@@ -183,7 +183,7 @@ function updateDepartmentId(req, res) {
 				message: "Role not found",
 			});
 		} else {
-			return result.affectedRows;
+			return;
 		}
 	});
 }

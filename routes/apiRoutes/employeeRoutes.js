@@ -65,7 +65,7 @@ router.post("/employees", ({ body }, res) => {
 	});
 });
 
-//DELETE a department
+//DELETE an employee
 router.delete("/employees/:id", (req, res) => {
 	const sql = `DELETE FROM employees WHERE id = ?`;
 	const params = [req.params.id];
@@ -86,5 +86,146 @@ router.delete("/employees/:id", (req, res) => {
 		}
 	});
 });
+
+// PUT updates to an employee
+router.put("/employees/:id", (req, res) => {
+	let affectedRows = 0;
+	if (req.body.first_name != null) {
+		updateFirstName(req, res);
+		affectedRows++;
+	}
+	if (req.body.last_name != null) {
+		updateLastName(req, res);
+		affectedRows++;
+	}
+	if (req.body.role_id != null) {
+		updateRoleId(req, res);
+		affectedRows++;
+	}
+	if (req.body.manager_id != null) {
+		updateManagerId(req, res);
+		affectedRows++;
+	}
+
+	if (req.body) {
+		res.json({
+			message: "success",
+			data: req.body,
+			changes: affectedRows,
+		});
+	} else {
+		res.json({
+			error: "Input not valid!",
+		});
+	}
+});
+
+function updateFirstName(req, res) {
+	const errors = inputChecker(req.body, "first_name");
+
+	if (errors) {
+		res.status(400).json({ error: errors });
+		return;
+	}
+
+	const sql = `UPDATE employees SET first_name = ?
+                    WHERE id = ?`;
+
+	const params = [req.body.first_name, req.params.id];
+
+	db.query(sql, params, (err, result) => {
+		if (err) {
+			res.status(400).json({ error: err.message });
+			// check if a record was found
+		} else if (!result.affectedRows) {
+			res.json({
+				message: "Employee not found",
+			});
+		} else {
+			return;
+		}
+	});
+}
+
+function updateLastName(req, res) {
+	const errors = inputChecker(req.body, "last_name");
+
+	if (errors) {
+		res.status(400).json({ error: errors });
+		return;
+	}
+
+	const sql = `UPDATE employees SET last_name = ?
+                    WHERE id = ?`;
+
+	const params = [req.body.last_name, req.params.id];
+
+	db.query(sql, params, (err, result) => {
+		if (err) {
+			res.status(400).json({ error: err.message });
+			// check if a record was found
+		} else if (!result.affectedRows) {
+			res.json({
+				message: "Employee not found",
+			});
+		} else {
+			return;
+		}
+	});
+}
+
+function updateRoleId(req, res) {
+	const errors = inputChecker(req.body, "role_id");
+
+	if (errors) {
+		res.status(400).json({ error: errors });
+		return;
+	}
+
+	const sql = `UPDATE employees SET role_id = ?
+                    WHERE id = ?`;
+
+	const params = [req.body.role_id, req.params.id];
+
+	db.query(sql, params, (err, result) => {
+		if (err) {
+			res.status(400).json({ error: err.message });
+			// check if a record was found
+		} else if (!result.affectedRows) {
+			res.json({
+				message: "Employee not found",
+			});
+		} else {
+			return;
+		}
+	});
+}
+
+function updateManagerId(req, res) {
+	const errors = inputChecker(req.body, "manager_id");
+
+	if (errors) {
+		res.status(400).json({ error: errors });
+		return;
+	}
+
+	const sql = `UPDATE employees SET manager_id = ?
+                    WHERE id = ?`;
+
+	const params = [req.body.manager_id, req.params.id];
+
+	db.query(sql, params, (err, result) => {
+		if (err) {
+			res.status(400).json({ error: err.message });
+			// check if a record was found
+		} else if (!result.affectedRows) {
+			res.json({
+				message: "Employee not found",
+			});
+		} else {
+			return;
+		}
+	});
+}
 
 module.exports = router;

@@ -51,7 +51,7 @@ router.get("/departments/:id/roles", (req, res) => {
 	});
 });
 
-//GET all employees from a single department (For Fun / Extra Credit)
+//GET all employees from a single department     (For Fun / Extra Credit)
 
 // Create a new department
 router.post("/departments", ({ body }, res) => {
@@ -88,7 +88,7 @@ router.delete("/departments/:id", (req, res) => {
 			// checks if anything was deleted
 		} else if (!result.affectedRows) {
 			res.json({
-				message: "Employee not found",
+				message: "Department not found",
 			});
 		} else {
 			res.json({
