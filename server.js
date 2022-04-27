@@ -5,6 +5,7 @@ const mysql = require("mysql2");
 //Imports user-defined modules
 const db = require("./db/connection");
 const apiRoutes = require("./routes/apiRoutes");
+const Index = require("./utils");
 
 //Sets PORT and creates app
 const PORT = process.env.PORT || 3001;
@@ -25,3 +26,9 @@ app.use((req, res) => {
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`);
 });
+
+function init() {
+	Index();
+}
+
+init();

@@ -75,6 +75,7 @@ router.post("/departments", ({ body }, res) => {
 			message: "success",
 			data: body,
 		});
+		return result;
 	});
 });
 
