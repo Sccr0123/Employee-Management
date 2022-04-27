@@ -220,13 +220,6 @@ function UpdateRoleSalary() {
 					type: "input",
 					name: "salary",
 					message: "Updated Salary?",
-					validate(answers) {
-						if (answers.salary != null) {
-							return true;
-						} else {
-							return false;
-						}
-					},
 				},
 			]).then(async (res) => {
 				await db.UpdateRoleSalary(roleId, res.salary);
@@ -261,13 +254,6 @@ function UpdateRoleDepartment() {
 					type: "input",
 					name: "department",
 					message: "Updated Department ID?",
-					validate(answers) {
-						if (answers.department != null) {
-							return true;
-						} else {
-							return false;
-						}
-					},
 				},
 			]).then(async (res) => {
 				await db.UpdateRoleDepartment(roleId, res.department);
@@ -337,11 +323,11 @@ function UpdateEmployee() {
 	]).then((res) => {
 		switch (res.answer) {
 			case "First Name":
-				UpdateEmployeeFirstName();
+				UpdateEmployeeFirst();
 				break;
 
 			case "Last Name":
-				UpdateEmployeeLastName();
+				UpdateEmployeeLast();
 				break;
 
 			case "Role":
@@ -540,7 +526,8 @@ function DeleteEmployee() {
 }
 
 function TheEnd() {
-	console.log("*dies*");
+	console.log("\n*dies*\n");
+	process.exit(1);
 }
 
 function baseQuestion() {
